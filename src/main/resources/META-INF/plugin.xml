@@ -1,18 +1,88 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.bigmouthcn.talkxideaplugin</id>
-    <name>talkx-idea-plugin Template</name>
-    <vendor>big-mouth-cn</vendor>
+    <name>TalkX - AI development assistant based on ChatGPT / GPT.</name>
+    <vendor email="huxiao.mail@qq.com" url="mailto://huxiao.mail@qq.com">TalkX</vendor>
+    <version>1.0.0</version>
+    <description>
+        <![CDATA[
+        <h3 style="text-align: left; margin-bottom: 0px;"><b>What can TalkX do?</b></h3>
+
+        <p style="text-align: left;">
+            <a href="https://talkx.cn/">TalkX</a> greatly enhances the efficiency of developers by integrating <b>GPT-4 and ChatGPT</b> into your IDE. <u>We utilize OpenAI's models and establish a global accelerated network with higher-level OpenAI keys</u>. TalkX makes it easy to learn programming techniques, interpret and analyze code, generate test cases, improve code, check security, and even explain advanced concepts.
+        </p>
+        <hr>
+        <h3 style="text-align: left; margin-bottom: 0px;"><b>TalkX 能做什么?</b></h3>
+
+        <p style="text-align: left;">
+            <a href="https://talkx.cn/">TalkX</a> 通过将<b>GPT-4和ChatGPT</b>集成到您的IDE，帮助开发人员大大加快了他们的工作效率。我们使用OpenAI的模型，建立了<u>全球加速网络，拥有更高权限的OpenAI密钥</u>。TalkX 使学习编程技术、解释和分析代码、生成测试用例、改进代码、检查安全性甚至解释高级概念变得容易。
+        </p>
+
+        <h3 style="text-align: left; margin-bottom: 0px;"><b>TalkX 可以回答各种技术问题</b></h3>
+
+        <p style="text-align: left;">
+            <ol>
+                <li style="margin: 5px;">生成代码：例如“用SpringBoot写一个响应类型是event/stream接口示例”。</li>
+                <li style="margin: 5px;">命令语法：例如“如何设置git配置变量”、“使用阿里云 cli 创建一个可读权限的OSS桶”。</li>
+                <li style="margin: 5px;">测试用例：“为这段代码生成测试用例 < <i>插入代码</i> >"</li>
+                <li style="margin: 5px;">解释代码：“解释一下当前选中的代码段”。</li>
+                <li style="margin: 5px;">生成注释：“为选中的代码生成注释”。</li>
+            </ol>
+        </p>
+
+        <h3 style="text-align: left; margin-bottom: 0px;"><b>TalkX 额外能力</b></h3>
+
+        <p style="text-align: left;">
+            <ol>
+                <li style="margin: 5px;">允许将TalkX生成的任何新代码与您现有的代码进行差异视图比较。这使您可以轻松地集成您想要的行或部分。</li>
+                <li style="margin: 5px;">询问后续问题以细化输出，TalkX会考虑聊天历史记录以获取上下文。这有助于您获得更准确和相关的结果。</li>
+            </ol>
+        </p>
+        ]]>
+    </description>
+    <change-notes>
+        <![CDATA[请参考 <b><a href="https://www.talkx.cn/docs/whats-new.html" > 更新说明 </a></b> 页面获取最新的更改日志。]]>
+    </change-notes>
 
     <depends>com.intellij.modules.platform</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.bigmouthcn.talkxideaplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-    </extensions>
-
     <applicationListeners>
-        <listener class="com.github.bigmouthcn.talkxideaplugin.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>
+        <listener class="com.github.bigmouth.cn.talkx.listeners.EditorEventsListener" topic="com.intellij.openapi.fileEditor.FileEditorManagerListener" />
     </applicationListeners>
+
+    <actions>
+        <group id="talkxToolsMenu" text="TalkX" popup="true">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <action id="TalkX.ExplainThisCode" icon="AllIcons.Actions.Help" class="com.github.bigmouth.cn.talkx.actions.ExplainThisCodeAction" text="解释代码">
+                <keyboard-shortcut keymap="$default" first-keystroke="shift alt E" />
+            </action>
+            <action id="TalkX.GenerateComment" icon="AllIcons.Actions.Annotate" class="com.github.bigmouth.cn.talkx.actions.GenerateCommentForThisCodeAction" text="生成注释">
+                <keyboard-shortcut keymap="$default" first-keystroke="shift alt C" />
+            </action>
+            <separator />
+            <action id="TalkX.PerformanceCheck" class="com.github.bigmouth.cn.talkx.actions.CheckForPerformanceIssuesAction" text="性能检查">
+            </action>
+            <action id="TalkX.SecurityCheck" class="com.github.bigmouth.cn.talkx.actions.CheckForSecurityIssuesAction" text="安全检查">
+            </action>
+            <action id="TalkX.StyleCheck" class="com.github.bigmouth.cn.talkx.actions.CheckForStyleIssuesAction" text="样式检查">
+            </action>
+            <action id="TalkX.OptimizeCode" class="com.github.bigmouth.cn.talkx.actions.OptimizeThisCodeAction" text="优化并改进">
+            </action>
+            <separator />
+            <action id="TalkX.ImproveReadability" class="com.github.bigmouth.cn.talkx.actions.ImproveReadabilityAction" text="提高可读性">
+            </action>
+            <action id="TalkX.CleanCode" class="com.github.bigmouth.cn.talkx.actions.CleanCodeAction" text="清理代码">
+            </action>
+            <separator />
+            <action id="TalkX.GenerateUnitTest" class="com.github.bigmouth.cn.talkx.actions.GenerateUnitTestAction" text="生成测速用例">
+            </action>
+        </group>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="TalkX" icon="/icons/talkx.svg" anchor="right" factoryClass="com.github.bigmouth.cn.talkx.TalkxWindowFactory" />
+        <notificationGroup id="TalkX Notification Group" displayType="BALLOON" />
+    </extensions>
 </idea-plugin>
