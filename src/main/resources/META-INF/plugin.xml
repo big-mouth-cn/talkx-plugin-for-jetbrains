@@ -2,20 +2,20 @@
 <idea-plugin>
     <id>com.github.bigmouthcn.talkxideaplugin</id>
     <name>TalkX - AI development assistant based on ChatGPT / GPT.</name>
-    <vendor email="huxiao.mail@qq.com" url="mailto://huxiao.mail@qq.com">TalkX</vendor>
+    <vendor email="huxiao.mail@qq.com" url="https://www.talkx.cn">TalkX</vendor>
     <version>1.0.0</version>
     <description>
         <![CDATA[
         <h3 style="text-align: left; margin-bottom: 0px;"><b>What can TalkX do?</b></h3>
 
         <p style="text-align: left;">
-            <a href="https://talkx.cn/">TalkX</a> greatly enhances the efficiency of developers by integrating <b>GPT-4 and ChatGPT</b> into your IDE. <u>We utilize OpenAI's models and establish a global accelerated network with higher-level OpenAI keys</u>. TalkX makes it easy to learn programming techniques, interpret and analyze code, generate test cases, improve code, check security, and even explain advanced concepts.
+            TalkX greatly enhances the efficiency of developers by integrating <b>GPT-4 and ChatGPT</b> into your IDE. <u>We utilize OpenAI's models and establish a global accelerated network with higher-level OpenAI keys</u>. TalkX makes it easy to learn programming techniques, interpret and analyze code, generate test cases, improve code, check security, and even explain advanced concepts.
         </p>
         <hr>
         <h3 style="text-align: left; margin-bottom: 0px;"><b>TalkX 能做什么?</b></h3>
 
         <p style="text-align: left;">
-            <a href="https://talkx.cn/">TalkX</a> 通过将<b>GPT-4和ChatGPT</b>集成到您的IDE，帮助开发人员大大加快了他们的工作效率。我们使用OpenAI的模型，建立了<u>全球加速网络，拥有更高权限的OpenAI密钥</u>。TalkX 使学习编程技术、解释和分析代码、生成测试用例、改进代码、检查安全性甚至解释高级概念变得容易。
+            TalkX 通过将<b>GPT-4和ChatGPT</b>集成到您的IDE，帮助开发人员大大加快了他们的工作效率。我们使用OpenAI的模型，建立了<u>全球加速网络，拥有更高权限的OpenAI密钥</u>。TalkX 使学习编程技术、解释和分析代码、生成测试用例、改进代码、检查安全性甚至解释高级概念变得容易。
         </p>
 
         <h3 style="text-align: left; margin-bottom: 0px;"><b>TalkX 可以回答各种技术问题</b></h3>
@@ -58,8 +58,8 @@
             <action id="TalkX.ExplainThisCode" icon="AllIcons.Actions.Help" class="com.github.bigmouth.cn.talkx.actions.ExplainThisCodeAction" text="解释代码">
                 <keyboard-shortcut keymap="$default" first-keystroke="shift alt E" />
             </action>
-            <action id="TalkX.GenerateComment" icon="AllIcons.Actions.Annotate" class="com.github.bigmouth.cn.talkx.actions.GenerateCommentForThisCodeAction" text="生成注释">
-                <keyboard-shortcut keymap="$default" first-keystroke="shift alt C" />
+            <action id="TalkX.LanguageTranslation" icon="/icons/language-translation.svg" class="com.github.bigmouth.cn.talkx.actions.LanguageTranslationAction" text="中英翻译">
+                <keyboard-shortcut keymap="$default" first-keystroke="shift alt T" />
             </action>
             <separator />
             <action id="TalkX.PerformanceCheck" class="com.github.bigmouth.cn.talkx.actions.CheckForPerformanceIssuesAction" text="性能检查">
@@ -77,6 +77,9 @@
             </action>
             <separator />
             <action id="TalkX.GenerateUnitTest" class="com.github.bigmouth.cn.talkx.actions.GenerateUnitTestAction" text="生成测速用例">
+            </action>
+            <separator />
+            <action id="TalkX.InsertCodeToChat" class="com.github.bigmouth.cn.talkx.actions.InsertCodeToChatAction" text="插入代码到聊天框">
             </action>
         </group>
     </actions>
