@@ -55,7 +55,7 @@
     <actions>
         <group id="talkxToolsMenu" text="TalkX" popup="true">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-            <action id="TalkX.ExplainThisCode" icon="AllIcons.Actions.Help" class="com.github.bigmouth.cn.talkx.actions.ExplainThisCodeAction" text="解释代码">
+            <action id="TalkX.ExplainThisCode" icon="/icons/explain-this-code.svg" class="com.github.bigmouth.cn.talkx.actions.ExplainThisCodeAction" text="解释代码">
                 <keyboard-shortcut keymap="$default" first-keystroke="shift alt E" />
             </action>
             <action id="TalkX.LanguageTranslation" icon="/icons/language-translation.svg" class="com.github.bigmouth.cn.talkx.actions.LanguageTranslationAction" text="中英翻译">

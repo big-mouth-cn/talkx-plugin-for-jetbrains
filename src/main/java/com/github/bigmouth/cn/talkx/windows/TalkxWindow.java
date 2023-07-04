@@ -10,7 +10,6 @@ import com.intellij.notification.NotificationType;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.Disposer;
 import com.intellij.ui.jcef.JBCefApp;
 import com.intellij.ui.jcef.JBCefBrowser;
 import org.cef.CefApp;
@@ -55,10 +54,7 @@ public class TalkxWindow {
                 JBCefBrowser browser = new JBCefBrowser();
 
                 this.registerAppSchemeHandler();
-//                String webUrl = "http://ideapp/index.html";
-//                String webUrl = "http://bxm-talkx-for-idea-plugin.oss-cn-hangzhou.aliyuncs.com/demo/index.html";
-//                String webUrl = "http://bxmads-test.oss-cn-hangzhou.aliyuncs.com/talx-plugin-web/index.html";
-                String webUrl = "https://plugin-web.talkx.cn/index.html";
+                String webUrl = Constant.WEB_URL;
 
                 webUrl += "?productName=" + GenericUtils.urlEncode(Constant.IDE_VERSION);
 
