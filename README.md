@@ -6,7 +6,7 @@ TalkX 通过将 `ChatGPT` 集成到您的IDE，帮助开发人员大大加快了
 
 - 使用集成开发环境（IDE）内置的插件系统:
 
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "talkx-idea-plugin"</kbd> >
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "talkx"</kbd> >
   <kbd>Install Plugin</kbd>
 
 - 手动安装:
