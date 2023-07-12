@@ -56,7 +56,8 @@ public class TalkxWindow {
                 this.registerAppSchemeHandler();
                 String webUrl = Constant.WEB_URL;
 
-                webUrl += "?productName=" + GenericUtils.urlEncode(Constant.IDE_VERSION);
+                webUrl += "?productName=" + GenericUtils.urlEncode(Constant.IDE_VERSION)
+                        + "&time=" + System.currentTimeMillis();
 
                 browser.loadURL(webUrl);
 

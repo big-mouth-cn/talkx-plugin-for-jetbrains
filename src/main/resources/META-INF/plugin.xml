@@ -6,42 +6,58 @@
     <version>1.0.0</version>
     <description>
         <![CDATA[
-        <h3 style="text-align: left; margin-bottom: 0px;"><b>What can TalkX do?</b></h3>
-
-        <p style="text-align: left;">
-            TalkX greatly enhances the efficiency of developers by integrating <b>and ChatGPT</b> into your IDE. <u>We utilize OpenAI's models and establish a global accelerated network with higher-level OpenAI keys</u>. TalkX makes it easy to learn programming techniques, interpret and analyze code, generate test cases, improve code, check security, and even explain advanced concepts.
+        <h3><b>What can TalkX do?</b></h3>
+        <p>
+            <a href="https://talkx.cn/">TalkX</a> greatly enhances the efficiency of developers by integrating <b>ChatGPT</b> into your IDE. <u>We utilize OpenAI's models and establish a global accelerated network with higher-level OpenAI keys</u>. TalkX makes it easy to learn programming techniques, interpret and analyze code, generate test cases, improve code, check security, and even explain advanced concepts.
         </p>
         <hr>
-        <h3 style="text-align: left; margin-bottom: 0px;"><b>TalkX 能做什么?</b></h3>
-
-        <p style="text-align: left;">
-            TalkX 通过将<b>ChatGPT</b>集成到您的IDE，帮助开发人员大大加快了他们的工作效率。我们使用OpenAI的模型，建立了<u>全球加速网络，拥有更高权限的OpenAI密钥</u>。TalkX 使学习编程技术、解释和分析代码、生成测试用例、改进代码、检查安全性甚至解释高级概念变得容易。
+        <h3><b>TalkX 能做什么?</b></h3>
+        <p>
+            <a href="https://talkx.cn/">TalkX</a> 通过将<b>GPT</b>集成到您的IDE，帮助开发人员大大加快了他们的工作效率。我们使用OpenAI的模型，建立了<u>全球加速网络，拥有更高权限的OpenAI密钥</u>。TalkX 使学习编程技术、解释和分析代码、生成测试用例、改进代码、检查安全性甚至解释高级概念变得容易。
         </p>
-
-        <h3 style="text-align: left; margin-bottom: 0px;"><b>TalkX 可以回答各种技术问题</b></h3>
-
-        <p style="text-align: left;">
-            <ol>
-                <li style="margin: 5px;">生成代码：例如“用SpringBoot写一个响应类型是event/stream接口示例”。</li>
-                <li style="margin: 5px;">命令语法：例如“如何设置git配置变量”、“使用阿里云 cli 创建一个可读权限的OSS桶”。</li>
-                <li style="margin: 5px;">测试用例：“为这段代码生成测试用例 < <i>插入代码</i> >"</li>
-                <li style="margin: 5px;">解释代码：“解释一下当前选中的代码段”。</li>
-                <li style="margin: 5px;">生成注释：“为选中的代码生成注释”。</li>
-            </ol>
+        <h3><b>TalkX 可以回答各种技术问题</b></h3>
+        <p>
+            <ul>
+                <li>生成代码：例如“用SpringBoot写一个响应类型是event/stream接口示例”。</li>
+                <li>命令语法：例如“如何设置git配置变量”、“使用阿里云 cli 创建一个可读权限的OSS桶”。</li>
+                <li>测试用例：“为这段代码生成测试用例 < <i>插入代码</i> >"</li>
+                <li>解释代码：“解释一下当前选中的代码段”。</li>
+                <li>生成注释：“为选中的代码生成注释”。</li>
+            </ul>
         </p>
-
-        <h3 style="text-align: left; margin-bottom: 0px;"><b>TalkX 额外能力</b></h3>
-
-        <p style="text-align: left;">
-            <ol>
-                <li style="margin: 5px;">允许将TalkX生成的任何新代码与您现有的代码进行差异视图比较。这使您可以轻松地集成您想要的行或部分。</li>
-                <li style="margin: 5px;">询问后续问题以细化输出，TalkX会考虑聊天历史记录以获取上下文。这有助于您获得更准确和相关的结果。</li>
-            </ol>
+        <h3><b>TalkX 额外能力</b></h3>
+        <p>
+            <ul>
+                <li>允许将TalkX生成的任何新代码与您现有的代码进行差异视图比较。这使您可以轻松地集成您想要的行或部分。</li>
+                <li>询问后续问题以细化输出，TalkX会考虑聊天历史记录以获取上下文。这有助于您获得更准确和相关的结果。</li>
+            </ul>
         </p>
         ]]>
     </description>
     <change-notes>
-        <![CDATA[请参考 <b><a href="https://www.talkx.cn/docs/whats-new.html" > 更新说明 </a></b> 页面获取最新的更改日志。]]>
+        <![CDATA[
+        <h3>0.0.5</h3>
+        <ul>
+            <li>修复了TalkX页面更新了但IDE可能不能加载新内容的问题。</li>
+        </ul>
+        <h3>0.0.4</h3>
+        <ul>
+            <li>修复已知问题，优化细节。</li>
+        </ul>
+        <h3>0.0.3</h3>
+        <ul>
+            <li>调整logo；</li>
+            <li>修复已知问题，优化细节。</li>
+        </ul>
+        <h3>0.0.2</h3>
+        <ul>
+            <li>新增了中英翻译快捷功能。</li>
+        </ul>
+        <h3>0.0.1</h3>
+        <ul>
+            <li>首个版本的发布。</li>
+        </ul>
+        ]]>
     </change-notes>
 
     <depends>com.intellij.modules.platform</depends>
