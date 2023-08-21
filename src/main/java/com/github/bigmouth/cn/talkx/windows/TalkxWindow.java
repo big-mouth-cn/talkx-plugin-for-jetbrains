@@ -1,6 +1,5 @@
 package com.github.bigmouth.cn.talkx.windows;
 
-import com.github.bigmouth.cn.talkx.handlers.CustomSchemeHandlerFactory;
 import com.github.bigmouth.cn.talkx.services.NotificationService;
 import com.github.bigmouth.cn.talkx.setting.Constant;
 import com.github.bigmouth.cn.talkx.utils.GenericUtils;
@@ -12,7 +11,6 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.ui.jcef.JBCefApp;
 import com.intellij.ui.jcef.JBCefBrowser;
-import org.cef.CefApp;
 import org.cef.CefClient;
 import org.jetbrains.annotations.NotNull;
 
@@ -53,7 +51,6 @@ public class TalkxWindow {
 
                 JBCefBrowser browser = new JBCefBrowser();
 
-                this.registerAppSchemeHandler();
                 String webUrl = Constant.WEB_URL;
 
                 webUrl += "?productName=" + GenericUtils.urlEncode(Constant.IDE_VERSION)
@@ -61,7 +58,6 @@ public class TalkxWindow {
 
                 browser.loadURL(webUrl);
 
-//                Disposer.register(getProject(), browser);
                 this.webView = browser;
                 CefClient cefClient = browser.getJBCefClient().getCefClient();
                 cefClient.addMessageRouter(new TalkxWindowRouter().getCefMessageRouter(project));
@@ -84,12 +80,6 @@ public class TalkxWindow {
 
     public JComponent content() {
         return this.webView() != null ? this.webView().getComponent() : null;
-    }
-
-    private void registerAppSchemeHandler() {
-        CustomSchemeHandlerFactory factory = new CustomSchemeHandlerFactory(this.getProject());
-        CefApp.getInstance()
-                .registerSchemeHandlerFactory("http", "ideapp", factory);
     }
 
     public TalkxWindow(@NotNull Project project) {

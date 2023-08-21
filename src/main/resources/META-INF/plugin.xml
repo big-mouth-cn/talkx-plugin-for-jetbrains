@@ -29,6 +29,10 @@
     </description>
     <change-notes>
         <![CDATA[
+        <h3>0.0.9</h3>
+        <ul>
+            <li>修复2023.2版本可能出现因TalkX加载失败导致崩溃的问题。</li>
+        </ul>
         <h3>0.0.8</h3>
         <ul>
             <li>界面及logo等细节调整。</li>
@@ -101,6 +105,7 @@
             </action>
             <separator />
             <action id="TalkX.InsertCodeToChat" class="com.github.bigmouth.cn.talkx.actions.InsertCodeToChatAction" text="插入代码到聊天框">
+                <keyboard-shortcut keymap="$default" first-keystroke="shift alt I" />
             </action>
         </group>
     </actions>
