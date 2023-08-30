@@ -1,7 +1,7 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.bigmouthcn.talkxideaplugin</id>
-    <name>TalkX - AI development assistant based on ChatGPT / GPT.</name>
+    <name>TalkX - ChatGPT GPT-4 Free AI code assistant</name>
     <vendor email="huxiao.mail@qq.com" url="https://www.talkx.cn">TalkX</vendor>
     <version>1.0.0</version>
     <description>
@@ -11,7 +11,7 @@
         <br>
         <img src="https://plugin-web.talkx.cn/images/explain_code_template.gif" />
         <h3><b>TalkX 能做什么?</b></h3>
-        <a href="https://www.talkx.cn/">TalkX</a> 通过将<b>GPT</b>集成到您的IDE，帮助开发人员大大加快了他们的工作效率。我们使用OpenAI的模型，建立了<u>全球加速网络，拥有更高权限的OpenAI密钥</u>。TalkX 使学习编程技术、解释和分析代码、生成测试用例、改进代码、检查安全性甚至解释高级概念变得容易。
+        <a href="https://www.talkx.cn/">TalkX</a> 通过将<b>GPT/GPT-4</b>集成到您的IDE，<b>免费</b>帮助开发人员大大加快了他们的工作效率。我们使用OpenAI的模型，建立了<u>全球加速网络，拥有更高权限的OpenAI密钥</u>。TalkX 使学习编程技术、解释和分析代码、生成测试用例、改进代码、检查安全性甚至解释高级概念变得容易。
         <h3><b>TalkX 可以回答各种技术问题</b></h3>
         <ul>
             <li>生成代码：例如“用SpringBoot写一个响应类型是event/stream接口示例”。</li>
@@ -29,6 +29,10 @@
     </description>
     <change-notes>
         <![CDATA[
+        <h3>0.0.10</h3>
+        <ul>
+            <li>修复了一些已知问题。</li>
+        </ul>
         <h3>0.0.9</h3>
         <ul>
             <li>修复2023.2版本可能出现因TalkX加载失败导致崩溃的问题。</li>
