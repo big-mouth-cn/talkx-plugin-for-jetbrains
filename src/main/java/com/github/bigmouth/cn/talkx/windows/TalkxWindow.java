@@ -9,6 +9,7 @@ import com.intellij.notification.NotificationType;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.SystemInfo;
 import com.intellij.ui.jcef.JBCefApp;
 import com.intellij.ui.jcef.JBCefBrowser;
 import org.cef.CefClient;
@@ -49,7 +50,27 @@ public class TalkxWindow {
                 NotificationService.notifyNotification(this.project, browserNotification);
             } else if (!this.webViewLoaded) {
 
-                JBCefBrowser browser = new JBCefBrowser();
+                boolean isOffScreenRendering = true;
+                String major = GenericUtils.getJetBrainsIDEVersion("major");
+                if (SystemInfo.isMac) {
+                    isOffScreenRendering = false;
+                } else if (!SystemInfo.isLinux && !SystemInfo.isUnix) {
+                    if (SystemInfo.isWindows) {
+                        isOffScreenRendering = true;
+                    }
+                } else {
+                    int ver = Integer.parseInt(major);
+                    isOffScreenRendering = ver >= 2023;
+                }
+
+                JBCefBrowser browser;
+
+                try {
+                    browser = JBCefBrowser.createBuilder().setOffScreenRendering(isOffScreenRendering).build();
+                } catch (Exception e) {
+                    browser = new JBCefBrowser();
+                    System.out.println("JBCefBrowser not support builder model.");
+                }
 
                 String webUrl = Constant.WEB_URL;
 
