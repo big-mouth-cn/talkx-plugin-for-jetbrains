@@ -35,4 +35,8 @@ public final class TalkxWindowService {
         CefBrowser browser = this.getTalkxWindow().webView().getCefBrowser();
         browser.executeJavaScript("window.postMessage(" + postMessage + ",'*');", browser.getURL(), 0);
     }
+
+    public CefBrowser getBrowser() {
+        return this.getTalkxWindow().webView().getCefBrowser();
+    }
 }

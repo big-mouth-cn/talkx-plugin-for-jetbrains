@@ -1,6 +1,7 @@
 package com.github.bigmouth.cn.talkx;
 
 import com.github.bigmouth.cn.talkx.services.TalkxWindowService;
+import com.github.bigmouth.cn.talkx.windows.RefreshTalkxAction;
 import com.github.bigmouth.cn.talkx.windows.TalkxWindow;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
@@ -12,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Collections;
 
 /**
  * @author allen
@@ -25,6 +27,8 @@ public class TalkxWindowFactory implements ToolWindowFactory {
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
         this.logger.info("Creating tool window content");
+        toolWindow.setTitleActions(Collections.singletonList(new RefreshTalkxAction()));
+
         JPanel csPanel = new JPanel(new BorderLayout());
         TalkxWindowService talkxWindowService = project.getService(TalkxWindowService.class);
         TalkxWindow talkxWindow = talkxWindowService.getTalkxWindow();

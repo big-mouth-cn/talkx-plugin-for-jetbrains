@@ -29,6 +29,12 @@
     </description>
     <change-notes>
         <![CDATA[
+        <h3>0.0.12</h3>
+        <ul>
+            <li>插件窗口新增刷新TalkX按钮；</li>
+            <li>新增「生成注释」和「生成图表」，删除一些不常用的代码模板；</li>
+            <li>修复了一些已知问题。</li>
+        </ul>
         <h3>0.0.11</h3>
         <ul>
             <li>修复了一些已知问题。</li>
@@ -99,17 +105,14 @@
             </action>
             <action id="TalkX.SecurityCheck" class="com.github.bigmouth.cn.talkx.actions.CheckForSecurityIssuesAction" text="安全检查">
             </action>
-            <action id="TalkX.StyleCheck" class="com.github.bigmouth.cn.talkx.actions.CheckForStyleIssuesAction" text="样式检查">
-            </action>
             <action id="TalkX.OptimizeCode" class="com.github.bigmouth.cn.talkx.actions.OptimizeThisCodeAction" text="优化并改进">
             </action>
             <separator />
-            <action id="TalkX.ImproveReadability" class="com.github.bigmouth.cn.talkx.actions.ImproveReadabilityAction" text="提高可读性">
+            <action id="TalkX.GenerateCommentForThisCode" class="com.github.bigmouth.cn.talkx.actions.GenerateCommentForThisCodeAction" text="生成注释">
             </action>
-            <action id="TalkX.CleanCode" class="com.github.bigmouth.cn.talkx.actions.CleanCodeAction" text="清理代码">
-            </action>
-            <separator />
             <action id="TalkX.GenerateUnitTest" class="com.github.bigmouth.cn.talkx.actions.GenerateUnitTestAction" text="生成测试用例">
+            </action>
+            <action id="TalkX.GenerateECharts" class="com.github.bigmouth.cn.talkx.actions.GenerateEChartsAction" text="生成图表">
             </action>
             <separator />
             <action id="TalkX.InsertCodeToChat" class="com.github.bigmouth.cn.talkx.actions.InsertCodeToChatAction" text="插入代码到聊天框">
