@@ -12,10 +12,13 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.ui.jcef.JBCefApp;
 import com.intellij.ui.jcef.JBCefBrowser;
+import com.jetbrains.cef.JCefAppConfig;
 import org.cef.CefClient;
+import org.cef.CefSettings;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import java.io.File;
 
 /**
  * @author allen
@@ -63,6 +66,10 @@ public class TalkxWindow {
                     isOffScreenRendering = ver >= 2023;
                 }
 
+                CefSettings cefSettings = JCefAppConfig.getInstance().getCefSettings();
+                cefSettings.persist_session_cookies = true;
+                cefSettings.cache_path = getCachePath();
+
                 JBCefBrowser browser;
 
                 try {
@@ -106,5 +113,9 @@ public class TalkxWindow {
     public TalkxWindow(@NotNull Project project) {
         this.webViewLoaded = false;
         this.project = project;
+    }
+
+    private static String getCachePath() {
+        return System.getProperty("user.home") + File.separator + ".talkx" + File.separator + "local_storage_cache";
     }
 }
