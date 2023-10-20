@@ -4,7 +4,6 @@ import com.github.bigmouth.cn.talkx.services.EditorService;
 import com.github.bigmouth.cn.talkx.setting.Constant;
 import com.google.gson.JsonObject;
 import com.intellij.diff.editor.ChainDiffVirtualFile;
-import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.util.ui.UIUtil;
@@ -174,22 +173,5 @@ public class GenericUtils {
             var1.printStackTrace();
             return "staging";
         }
-    }
-
-    public static String getJetBrainsIDEVersion(String whichVersion) {
-        ApplicationInfo applicationInfo = ApplicationInfo.getInstance();
-        String version = "";
-
-        try {
-            if (whichVersion.equalsIgnoreCase("major")) {
-                version = applicationInfo.getMajorVersion();
-            } else {
-                version = applicationInfo.getFullVersion();
-            }
-        } catch (Exception e) {
-            System.out.println("Error getting IDE full version" + e);
-        }
-
-        return version;
     }
 }
