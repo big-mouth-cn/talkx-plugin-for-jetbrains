@@ -29,6 +29,10 @@
     </description>
     <change-notes>
         <![CDATA[
+        <h3>0.1.0</h3>
+        <ul>
+            <li>修复了一些已知问题。</li>
+        </ul>
         <h3>0.0.13</h3>
         <ul>
             <li>修复了部分版本重启IDE后，需要重新登录TalkX的问题；</li>
@@ -59,31 +63,6 @@
         <h3>0.0.7</h3>
         <ul>
             <li>支持 IntelliJ Platform version 2023.2。</li>
-        </ul>
-        <h3>0.0.6</h3>
-        <ul>
-            <li>修改插件的描述。</li>
-        </ul>
-        <h3>0.0.5</h3>
-        <ul>
-            <li>修复了TalkX页面更新了但IDE可能不能加载新内容的问题。</li>
-        </ul>
-        <h3>0.0.4</h3>
-        <ul>
-            <li>修复已知问题，优化细节。</li>
-        </ul>
-        <h3>0.0.3</h3>
-        <ul>
-            <li>调整logo；</li>
-            <li>修复已知问题，优化细节。</li>
-        </ul>
-        <h3>0.0.2</h3>
-        <ul>
-            <li>新增了中英翻译快捷功能。</li>
-        </ul>
-        <h3>0.0.1</h3>
-        <ul>
-            <li>首个版本的发布。</li>
         </ul>
         ]]>
     </change-notes>
