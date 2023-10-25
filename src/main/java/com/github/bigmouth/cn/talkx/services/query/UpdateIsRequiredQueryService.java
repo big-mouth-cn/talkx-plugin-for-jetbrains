@@ -23,7 +23,7 @@ public class UpdateIsRequiredQueryService extends AbstractInvokeLaterQueryServic
         UpdateIsRequired updateIsRequiredAvailable = new Gson().fromJson(data, UpdateIsRequired.class);
         String talkX = "TalkX";
         String subTitle = "需要更新";
-        String content = "TalkX的 " + updateIsRequiredAvailable.getInstallVersion() + " 版本已不再支持，请从市场更新到最新版本 " + updateIsRequiredAvailable.getLastVersion() + "。";
+        String content = "TalkX的 " + updateIsRequiredAvailable.getInstallVersion() + " 版本在未来某个时候不再支持，请从市场更新到最新版本 " + updateIsRequiredAvailable.getLastVersion() + "。";
         try {
             Notification notificationWarning = NotificationService.createNotification(talkX, subTitle, content, NotificationType.ERROR, new UpdateTalkxAction("更新TalkX"));
             NotificationService.notifyNotification(project, notificationWarning);
