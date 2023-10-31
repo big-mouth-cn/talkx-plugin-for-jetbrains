@@ -6,29 +6,45 @@
     <version>1.0.0</version>
     <description>
         <![CDATA[
-        <h3><b>What can TalkX do?</b></h3>
-        <a href="https://www.talkx.cn/">TalkX</a> greatly enhances the efficiency of developers by integrating <b>ChatGPT</b> into your IDE. <u>We utilize OpenAI's models and establish a global accelerated network with higher-level OpenAI keys</u>. TalkX makes it easy to learn programming techniques, interpret and analyze code, generate test cases, improve code, check security, and even explain advanced concepts.
-        <br>
-        <img src="https://plugin-web.talkx.cn/images/explain_code_template.gif" />
-        <h3><b>TalkX 能做什么?</b></h3>
-        <a href="https://www.talkx.cn/">TalkX</a> 通过将<b>GPT/GPT-4</b>集成到您的IDE，<b>免费</b>帮助开发人员大大加快了他们的工作效率。我们使用OpenAI的模型，建立了<u>全球加速网络，拥有更高权限的OpenAI密钥</u>。TalkX 使学习编程技术、解释和分析代码、生成测试用例、改进代码、检查安全性甚至解释高级概念变得容易。
-        <h3><b>TalkX 可以回答各种技术问题</b></h3>
-        <ul>
-            <li>生成代码：例如“用SpringBoot写一个响应类型是event/stream接口示例”。</li>
-            <li>命令语法：例如“如何设置git配置变量”、“使用阿里云 cli 创建一个可读权限的OSS桶”。</li>
-            <li>测试用例：“为这段代码生成测试用例 < <i>插入代码</i> >"</li>
-            <li>解释代码：“解释一下当前选中的代码段”。</li>
-            <li>生成注释：“为选中的代码生成注释”。</li>
-        </ul>
-        <h3><b>TalkX 额外能力</b></h3>
-        <ul>
-            <li>允许将TalkX生成的任何新代码与您现有的代码进行差异视图比较。这使您可以轻松地集成您想要的行或部分。</li>
-            <li>询问后续问题以细化输出，TalkX会考虑聊天历史记录以获取上下文。这有助于您获得更准确和相关的结果。</li>
-        </ul>
+<h3><b>What can TalkX do?</b></h3>
+<a href="https://www.talkx.cn/">TalkX</a> 是一款将OpenAI的<b>GPT 3.5/4</b>模型集成到IDE的AI编程插件。它<b>免费</b>提供特定场景的AI编程指导，帮助开发人员<b>提高工作效率约38%</b>，甚至在<b>解决编程问题的效率上提升超过2倍</b>。作为国内领先的AI开发助手，TalkX还为其他领域的用户提供知识和支持。
+<p><img src="https://plugin-web.talkx.cn/images/explain_code_template.gif" width="100%" /></p>
+<h3><b>产品功能</b></h3>
+<ul>
+    <li>提升38%工作效率：帮助各个阶段的程序员快速了解新技术和概念，提高开发效率和代码质量，加快阅读理解他人的源码，生成代码和注释，回答用户问题和解决问题。</li>
+    <li>提升2倍解决编程问题效率：基于自然语言处理和生成技术的AI助手，能够快速理解用户的问题，准确回答提问，提供信息或解决问题。</li>
+</ul>
+<h3><b>产品特点</b></h3>
+<ul>
+    <li>产品完全免费，无使用限制。</li>
+    <li>界面设计简单易用，交互体验流畅。</li>
+    <li>精心训练常用编程场景：解释代码、分析检查、改进、生成代码和注释。</li>
+    <li>建立了全球加速网络，无需“魔法”，响应速度快。</li>
+    <li>由具有多年互联网经验的资深团队开发。</li>
+</ul>
+<h3><b>编程场景</b></h3>
+<ul>
+    <li>解释代码：从代码流程、业务逻辑等多方面解释代码的作用。</li>
+    <li>中英翻译：翻译所提供的内容，自动识别中英文。</li>
+    <li>代码检查：从性能、安全和优化的角度分析理解你的代码，并生成建议的新代码。</li>
+    <li>生成代码：为选中的代码生成注释，还能智能识别类，方法还是代码段。</li>
+    <li>生成测试用例：为选中的代码生成单元测试用例。</li>
+    <li>生成图表：为提供的数据自动生成在线图表，还能提出任何修改需求。</li>
+    <li>自定义场景：为所选中的代码段，向TalkX询问任何你想了解的问题或信息。</li>
+</ul>
+<h3><b>额外能力</b></h3>
+<ul>
+    <li>允许将 TalkX 生成的任何新代码与您现有的代码进行差异视图比较，以便轻松集成所需的行或部分。</li>
+    <li>通过询问后续问题以细化输出，TalkX 考虑聊天历史记录以获取上下文，提供更准确和相关的结果。</li>
+</ul>
         ]]>
     </description>
     <change-notes>
         <![CDATA[
+        <h3>0.1.1</h3>
+        <ul>
+            <li>修复了Windows下2022+版本不能使用回车发送消息的问题。</li>
+        </ul>
         <h3>0.1.0</h3>
         <ul>
             <li>修复了一些已知问题。</li>
@@ -59,10 +75,6 @@
         <h3>0.0.8</h3>
         <ul>
             <li>界面及logo等细节调整。</li>
-        </ul>
-        <h3>0.0.7</h3>
-        <ul>
-            <li>支持 IntelliJ Platform version 2023.2。</li>
         </ul>
         ]]>
     </change-notes>
