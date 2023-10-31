@@ -42,9 +42,9 @@
         <![CDATA[
         <h3>0.1.1</h3>
         <ul>
-            <li>修复了Windows下2022+版本不能使用回车发送消息的问题。</li>
-            <li>修复了多版本环境下存在的登录问题。</li>
+            <li>修复了Windows下2022版本不能使用回车发送消息的问题。</li>
         </ul>
+        如果更新版本后不能正常打开，请点击<a href="https://bxmrds.yuque.com/odd8db/talkx/zdzewgtas893or60">这里</a>查看解决方案
         <h3>0.1.0</h3>
         <ul>
             <li>修复了一些已知问题。</li>
