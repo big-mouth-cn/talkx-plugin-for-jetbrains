@@ -52,20 +52,6 @@ public class TalkxWindow {
                 });
                 NotificationService.notifyNotification(this.project, browserNotification);
             } else if (!this.webViewLoaded) {
-
-                boolean isOffScreenRendering = true;
-                String major = GenericUtils.getJetBrainsIDEVersion("major");
-                if (SystemInfo.isMac) {
-                    isOffScreenRendering = false;
-                } else if (!SystemInfo.isLinux && !SystemInfo.isUnix) {
-                    if (SystemInfo.isWindows) {
-                        isOffScreenRendering = true;
-                    }
-                } else {
-                    int ver = Integer.parseInt(major);
-                    isOffScreenRendering = ver >= 2023;
-                }
-
                 CefSettings cefSettings = JCefAppConfig.getInstance().getCefSettings();
                 cefSettings.persist_session_cookies = true;
                 cefSettings.cache_path = getCachePath();
@@ -73,7 +59,19 @@ public class TalkxWindow {
                 JBCefBrowser browser;
 
                 try {
-                    browser = JBCefBrowser.createBuilder().setOffScreenRendering(isOffScreenRendering).build();
+                    // 这段代码使用JBCefBrowser.createBuilder()创建一个浏览器构建器，
+                    // 然后通过setOffScreenRendering(isOffScreenRendering)方法设置是否使用屏幕外渲染，
+                    // 最后通过build()方法构建浏览器对象。
+                    //
+                    // 渲染方式的区别在于是否将浏览器的渲染结果直接显示在屏幕上。
+                    // 当isOffScreenRendering为true时，浏览器将使用缓冲渲染到一个轻量级的Swing组件上，
+                    // 即屏幕外渲染。这种方式可以提高渲染性能，但无法直接在屏幕上看到浏览器的内容。
+                    // 当isOffScreenRendering为false时，浏览器将使用窗口模式来渲染，
+                    // 即在一个窗口中显示浏览器的内容。
+                    //
+                    // 选择渲染方式取决于具体的需求。如果需要在后台进行页面渲染或进行自动化测试等操作，
+                    // 可以选择屏幕外渲染。如果需要直接在屏幕上显示浏览器的内容，可以选择窗口模式渲染。
+                    browser = JBCefBrowser.createBuilder().setOffScreenRendering(false).build();
                 } catch (Exception e) {
                     browser = new JBCefBrowser();
                     System.out.println("JBCefBrowser not support builder model.");
