@@ -53,7 +53,7 @@ public class TalkxWindow {
             } else if (!this.webViewLoaded) {
                 CefSettings cefSettings = JCefAppConfig.getInstance().getCefSettings();
                 cefSettings.persist_session_cookies = true;
-                cefSettings.cache_path = getCachePath(GenericUtils.getJetBrainsIDEVersion());
+                cefSettings.cache_path = getCachePath();
 
                 JBCefBrowser browser;
 
@@ -113,10 +113,7 @@ public class TalkxWindow {
         this.project = project;
     }
 
-    private static String getCachePath(String jetBrainsVersion) {
-        return System.getProperty("user.home")
-                + File.separator + ".talkx"
-                + File.separator + jetBrainsVersion
-                + File.separator + "local_storage_cache";
+    private static String getCachePath() {
+        return System.getProperty("user.home") + File.separator + ".talkx" + File.separator + "local_storage_cache";
     }
 }
