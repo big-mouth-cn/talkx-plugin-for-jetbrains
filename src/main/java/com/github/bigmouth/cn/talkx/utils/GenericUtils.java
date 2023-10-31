@@ -176,12 +176,16 @@ public class GenericUtils {
         }
     }
 
+    public static String getJetBrainsIDEVersion() {
+        return getJetBrainsIDEVersion(null);
+    }
+
     public static String getJetBrainsIDEVersion(String whichVersion) {
         ApplicationInfo applicationInfo = ApplicationInfo.getInstance();
         String version = "";
 
         try {
-            if (whichVersion.equalsIgnoreCase("major")) {
+            if ("major".equalsIgnoreCase(whichVersion)) {
                 version = applicationInfo.getMajorVersion();
             } else {
                 version = applicationInfo.getFullVersion();
