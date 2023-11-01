@@ -6,7 +6,8 @@
     <version>1.0.0</version>
     <description>
         <![CDATA[
-<h3><b>What can TalkX do?</b></h3>
+<h3><b>What is TalkX?</b></h3>
+<p>This is a free AI programming assistant based on OpenAI's GPT-4 implementation.</p>
 <a href="https://www.talkx.cn/">TalkX</a> 是一款将OpenAI的<b>GPT 3.5/4</b>模型集成到IDE的AI编程插件。它<b>免费</b>提供特定场景的AI编程指导，帮助开发人员<b>提高工作效率约38%</b>，甚至在<b>解决编程问题的效率上提升超过2倍</b>。作为国内领先的AI开发助手，TalkX还为其他领域的用户提供知识和支持。
 <h3><b>产品功能</b></h3>
 <ul>
