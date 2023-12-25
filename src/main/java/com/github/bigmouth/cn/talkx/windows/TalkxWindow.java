@@ -126,4 +126,12 @@ public class TalkxWindow {
     private static String getCachePath() {
         return System.getProperty("user.home") + File.separator + ".talkx" + File.separator + "local_storage_cache";
     }
+
+    public CefLifeSpanHandler getCefLifeSpanHandler() {
+        return cefLifeSpanHandler;
+    }
+
+    public void setCefLifeSpanHandler(CefLifeSpanHandler cefLifeSpanHandler) {
+        this.cefLifeSpanHandler = cefLifeSpanHandler;
+    }
 }
