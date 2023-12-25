@@ -20,11 +20,11 @@ public class NotificationService {
         notification.setTitle(title);
         notification.setSubtitle(subTitle);
         if (type.equals(NotificationType.ERROR)) {
-            notification.setIcon(AllIcons.General.NotificationError);
+            notification.setIcon(AllIcons.General.BalloonError);
         } else if (type.equals(NotificationType.WARNING)) {
-            notification.setIcon(AllIcons.General.NotificationWarning);
+            notification.setIcon(AllIcons.General.BalloonWarning);
         } else if (type.equals(NotificationType.INFORMATION)) {
-            notification.setIcon(AllIcons.General.NotificationInfo);
+            notification.setIcon(AllIcons.General.BalloonInformation);
         }
 
         if (action != null) {

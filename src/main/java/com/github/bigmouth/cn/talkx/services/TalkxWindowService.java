@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.intellij.openapi.components.Service;
 import com.intellij.openapi.project.Project;
 import org.cef.browser.CefBrowser;
+import org.cef.handler.CefLifeSpanHandler;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -36,7 +37,11 @@ public final class TalkxWindowService {
         browser.executeJavaScript("window.postMessage(" + postMessage + ",'*');", browser.getURL(), 0);
     }
 
-    public CefBrowser getBrowser() {
-        return this.getTalkxWindow().webView().getCefBrowser();
+    public void setCefLifeSpanHandler(CefLifeSpanHandler cefLifeSpanHandler) {
+        this.talkxWindow.setCefLifeSpanHandler(cefLifeSpanHandler);
+    }
+
+    public void destroy() {
+        this.talkxWindow.destroy();
     }
 }
