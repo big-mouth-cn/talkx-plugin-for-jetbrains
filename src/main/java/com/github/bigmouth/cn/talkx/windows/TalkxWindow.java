@@ -11,13 +11,19 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.ui.jcef.JBCefApp;
 import com.intellij.ui.jcef.JBCefBrowser;
+import com.intellij.ui.jcef.JBCefClient;
 import com.jetbrains.cef.JCefAppConfig;
 import org.cef.CefClient;
 import org.cef.CefSettings;
+import org.cef.browser.CefBrowser;
+import org.cef.browser.CefFrame;
+import org.cef.handler.CefLifeSpanHandler;
+import org.cef.handler.CefLoadHandlerAdapter;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.io.File;
+import java.util.Objects;
 
 /**
  * @author allen
@@ -29,6 +35,8 @@ public class TalkxWindow {
     private JBCefBrowser webView;
     private final Project project;
     private boolean webViewLoaded;
+
+    private CefLifeSpanHandler cefLifeSpanHandler;
 
     public Project getProject() {
         return this.project;
@@ -55,8 +63,13 @@ public class TalkxWindow {
                 cefSettings.persist_session_cookies = true;
                 cefSettings.cache_path = getCachePath();
 
-                JBCefBrowser browser;
+                String webUrl = Constant.WEB_URL;
 
+                webUrl += "?productName=" + GenericUtils.urlEncode(Constant.IDE_VERSION)
+                        + "&talkxVersion=" + Constant.TALKX_VERSION
+                        + "&time=" + System.currentTimeMillis();
+
+                JBCefBrowser browser;
                 try {
                     // 这段代码使用JBCefBrowser.createBuilder()创建一个浏览器构建器，
                     // 然后通过setOffScreenRendering(isOffScreenRendering)方法设置是否使用屏幕外渲染，
@@ -70,28 +83,34 @@ public class TalkxWindow {
                     //
                     // 选择渲染方式取决于具体的需求。如果需要在后台进行页面渲染或进行自动化测试等操作，
                     // 可以选择屏幕外渲染。如果需要直接在屏幕上显示浏览器的内容，可以选择窗口模式渲染。
-                    browser = JBCefBrowser.createBuilder().setOffScreenRendering(false).build();
+                    browser = JBCefBrowser.createBuilder().setOffScreenRendering(false).setUrl(webUrl).build();
                 } catch (Exception e) {
                     browser = new JBCefBrowser();
+                    browser.loadURL(webUrl);
                     System.out.println("JBCefBrowser not support builder model.");
                 }
-
-                String webUrl = Constant.WEB_URL;
-
-                webUrl += "?productName=" + GenericUtils.urlEncode(Constant.IDE_VERSION)
-                        + "&talkxVersion=" + Constant.TALKX_VERSION
-                        + "&time=" + System.currentTimeMillis();
-
-                browser.loadURL(webUrl);
 
                 this.webView = browser;
                 CefClient cefClient = browser.getJBCefClient().getCefClient();
                 cefClient.addMessageRouter(new TalkxWindowRouter().getCefMessageRouter(project));
 
                 this.webViewLoaded = true;
+
                 ApplicationManager.getApplication().invokeLater(() -> {
                     System.out.println("invoke Later!");
                 });
+
+                JBCefClient jbCefClient = this.webView.getJBCefClient();
+                if (Objects.nonNull(cefLifeSpanHandler)) {
+                    jbCefClient.addLifeSpanHandler(cefLifeSpanHandler, this.webView.getCefBrowser());
+                }
+                jbCefClient.addLoadHandler(new CefLoadHandlerAdapter() {
+                    @Override
+                    public void onLoadEnd(CefBrowser browser, CefFrame frame, int httpStatusCode) {
+                        System.out.println("onLoadEnd!");
+                    }
+                }, this.webView.getCefBrowser());
+
             }
         } catch (Exception var7) {
             var7.printStackTrace();
@@ -100,11 +119,19 @@ public class TalkxWindow {
         return this.webView;
     }
 
+    public void destroy() {
+        if (this.webViewLoaded) {
+            this.webViewLoaded = false;
+            this.webView.dispose();
+            this.webView = null;
+        }
+    }
+
     public synchronized JBCefBrowser webView() {
         return !this.webViewLoaded ? this.webViewLazy() : this.webView;
     }
 
-    public JComponent content() {
+    public JComponent getWebViewOrElseCreating() {
         return this.webView() != null ? this.webView().getComponent() : null;
     }
 
@@ -115,5 +142,13 @@ public class TalkxWindow {
 
     private static String getCachePath() {
         return System.getProperty("user.home") + File.separator + ".talkx" + File.separator + "local_storage_cache";
+    }
+
+    public CefLifeSpanHandler getCefLifeSpanHandler() {
+        return cefLifeSpanHandler;
+    }
+
+    public void setCefLifeSpanHandler(CefLifeSpanHandler cefLifeSpanHandler) {
+        this.cefLifeSpanHandler = cefLifeSpanHandler;
     }
 }
