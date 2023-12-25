@@ -49,6 +49,7 @@ public class TalkxWindowRouter {
 
                     String res = project.getService(QueryServiceFactory.class).invoke(queryInvokeArgument);
                     if (Objects.nonNull(res)) {
+                        System.out.println("[TalkX] == Query: " + res);
                         callback.success(res);
                     }
                 } catch (Exception e) {
